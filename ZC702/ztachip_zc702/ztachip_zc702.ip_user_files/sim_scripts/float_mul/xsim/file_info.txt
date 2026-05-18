@@ -1,0 +1,2 @@
+float_mul.v,verilog,xil_defaultlib,../../../../ztachip_zc702.gen/sources_1/ip/float_mul/sim/float_mul.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

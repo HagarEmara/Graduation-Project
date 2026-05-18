@@ -1,0 +1,25 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../ztachip_zc702.gen/sources_1/bd/zynq_bd/ipshared/ec67/hdl" --include "../../../../ztachip_zc702.gen/sources_1/bd/zynq_bd/ipshared/f42d/hdl" --include "/tools/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
+"../../../../ztachip_zc702.gen/sources_1/ip/float_addsub/sim/float_addsub.v" \
+"../../../../ztachip_zc702.gen/sources_1/ip/float_mul/sim/float_mul.v" \
+"../../../../ztachip_zc702.ip_user_files/bd/zynq_bd/ip/zynq_bd_ps7_0/sim/zynq_bd_ps7_0.v" \
+"../../../../ztachip_zc702.ip_user_files/bd/zynq_bd/sim/zynq_bd.v" \
+"../../../../../platform/Xilinx/CCD_SYNC.v" \
+"../../../../../platform/Xilinx/DPRAM.v" \
+"../../../../../platform/Xilinx/DPRAM_BE.v" \
+"../../../../../platform/Xilinx/DPRAM_DUAL_CLOCK.v" \
+"../../../../../platform/Xilinx/FP32_ADDSUB.v" \
+"../../../../../platform/Xilinx/FP32_MUL.v" \
+"../../../../../platform/Xilinx/SHIFT.v" \
+"../../../../../platform/Xilinx/SPRAM.v" \
+"../../../../../platform/Xilinx/SPRAM_BE.v" \
+"../../../../../platform/Xilinx/SYNC_LATCH.v" \
+"../../../../../src/top/riscv.v" \
+"../../../../ztachip_zc702.gen/sources_1/bd/zynq_bd/hdl/zynq_bd_wrapper.v" \
+"../../../../../zc702_top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

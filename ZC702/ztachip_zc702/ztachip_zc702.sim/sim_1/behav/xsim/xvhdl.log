@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mahmoudsamy/grad/ZC702/src/top/zc702_apb_uart_bridge.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zc702_apb_uart_bridge'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mahmoudsamy/grad/ZC702/src/top/zc702_sysctrl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zc702_sysctrl'

@@ -1,0 +1,14 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_hello_world_system,org.eclipse.launchbar.core.descriptorType.default\:Debugger_lwip_echo-Default,org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_lwip_echo_system,org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_arm_loader_system
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Debugger_lwip_echo-Default/activeLaunchMode=embdebug
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_arm_loader_system/activeLaunchMode=systemrun
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_arm_loader_system/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_hello_world_system/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_hello_world_system/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_lwip_echo_system/activeLaunchMode=systemdebug
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_test3_5_app_system/activeLaunchMode=systemrun
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_test3_app_system/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:SystemDebugger_test4_app_system/activeLaunchMode=run

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Mon May 18 15:08:49 2026
+# Process ID: 14054
+# Current directory: /home/mahmoudsamy/grad/ZC702/ztachip_zc702
+# Command line: vivado -mode batch -source /dev/fd/63
+# Log file: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/vivado.log
+# Journal file: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/vivado.jou
+#-----------------------------------------------------------
+source /dev/fd/63

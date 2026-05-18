@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="test4_app" location="/home/mahmoudsamy/grad/ZC702/vitis_ws/test4_app" platform="/home/mahmoudsamy/grad/ZC702/vitis_ws/ztachip_zc702_platform_v2/export/ztachip_zc702_platform_v2/ztachip_zc702_platform_v2.xpfm" platformUID="xilinx:zc702::0.0(custom)" systemProject="test4_app_system" sysConfig="ztachip_zc702_platform_v2" runtime="C/C++" cpu="standalone_domain" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="3d9bc612681c2588e709e6dbc05e7517">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.269518291">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.594557004" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>

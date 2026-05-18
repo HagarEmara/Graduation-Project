@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Mon May 18 19:12:46 2026
+# Process ID: 161087
+# Current directory: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.runs/synth_1
+# Command line: vivado -log zc702_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zc702_top.tcl
+# Log file: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.runs/synth_1/zc702_top.vds
+# Journal file: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source zc702_top.tcl -notrace

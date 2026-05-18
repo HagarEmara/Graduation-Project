@@ -1,0 +1,181 @@
+#include "xil_printf.h"
+#include "xil_io.h"
+#include "xil_cache.h"
+#include "sleep.h"
+#include "ff.h"
+#include <string.h>
+
+#define SYSCTRL_BASE             0x40000000
+#define CTRL_OFFSET              0x08
+
+#define VEXRISCV_VECTOR_DDR      0x00200000
+#define VEXRISCV_MAIN_DDR        0x00200000
+
+#define DDR_DESCRIPTOR_BASE      0x0C800000
+#define DDR_DESCRIPTOR_MAGIC     0x5A544131
+#define DDR_DESCRIPTOR_MAX_FILES 16
+#define DDR_DESCRIPTOR_NAME_LEN  64
+#define DDR_MODEL_BASE_PHYS      0x0C900000
+#define DDR_MODEL_BASE           0x0C900000
+
+#define VECTOR_FILENAME          "0:ZTA_VEC.BIN"
+#define MAIN_FILENAME            "0:ZTA_MAIN.BIN"
+#define MODEL_FILENAME           "0:SMOLLM2.ZUF"
+#define UART_BRIDGE_BASE    0x40010000
+#define UART_AVAIL_OFFSET   0x00
+#define UART_READ_OFFSET    0x04
+
+typedef struct {
+    char     name[DDR_DESCRIPTOR_NAME_LEN];
+    u32      ddr_addr;
+    u32      size;
+    u32      crc32;
+    u32      reserved;
+} DdrFileEntry;
+
+typedef struct {
+    u32          magic;
+    u32          version;
+    u32          num_files;
+    u32          reserved;
+    DdrFileEntry files[DDR_DESCRIPTOR_MAX_FILES];
+} DdrDescriptor;
+
+static u32 load_file_to_ddr(const char *filename, u32 ddr_addr) {
+    FIL     fil;
+    FRESULT res;
+    UINT    bytes_read = 0;
+    UINT    total = 0;
+    u8     *dst = (u8 *)ddr_addr;
+    u8      buf[4096];
+
+    xil_printf("  Loading %s -> 0x%08X\r\n", filename, ddr_addr);
+
+    res = f_open(&fil, filename, FA_READ);
+    if(res != FR_OK) {
+        xil_printf("  FAILED (err %d)\r\n", res);
+        return 0;
+    }
+
+    while(1) {
+        res = f_read(&fil, buf, sizeof(buf), &bytes_read);
+        if(res != FR_OK || bytes_read == 0) break;
+        memcpy(dst, buf, bytes_read);
+        dst   += bytes_read;
+        total += bytes_read;
+    }
+
+    f_close(&fil);
+    xil_printf("  Done: %u bytes OK\r\n", total);
+    return total;
+}
+
+int main(void) {
+    static FATFS fatfs;
+    FRESULT res;
+    u32 vector_size, main_size, model_size;
+
+    xil_printf("\r\n=============================\r\n");
+    xil_printf(" ZC702 ARM Loader v1\r\n");
+    xil_printf("=============================\r\n");
+
+    /* Step 1: Confirm VexRiscv is held in reset */
+    u32 ctrl = Xil_In32(SYSCTRL_BASE + CTRL_OFFSET);
+    xil_printf("[1] CTRL = 0x%08X", ctrl);
+    if(ctrl & 0x1) {
+        xil_printf(" (VexRiscv in reset - OK)\r\n");
+    } else {
+        xil_printf(" (VexRiscv NOT in reset - asserting)\r\n");
+        Xil_Out32(SYSCTRL_BASE + CTRL_OFFSET, 0x00000001);
+        usleep(100000);
+    }
+
+    /* Step 2: Mount SD card */
+    xil_printf("[2] Mounting SD card...\r\n");
+    res = f_mount(&fatfs, "0:", 1);
+    if(res != FR_OK) {
+        xil_printf("    ERROR: mount failed (err %d)\r\n", res);
+        return -1;
+    }
+    xil_printf("    SD mounted OK\r\n");
+
+    /* Step 3: List root directory */
+    xil_printf("[3] SD card root contents:\r\n");
+    DIR dir;
+    FILINFO fno;
+    res = f_opendir(&dir, "0:");
+    if(res == FR_OK) {
+        while(1) {
+            res = f_readdir(&dir, &fno);
+            if(res != FR_OK || fno.fname[0] == 0) break;
+            xil_printf("    %s (%lu bytes)\r\n", fno.fname, fno.fsize);
+        }
+        f_closedir(&dir);
+    } else {
+        xil_printf("    f_opendir failed (err %d)\r\n", res);
+    }
+
+    /* Step 4: Load firmware vector */
+    xil_printf("[4] Loading firmware:\r\n");
+    vector_size = load_file_to_ddr(VECTOR_FILENAME, VEXRISCV_VECTOR_DDR);
+    if(vector_size == 0) return -1;
+
+    /* Step 5: Load firmware main code */
+    main_size = load_file_to_ddr(MAIN_FILENAME, VEXRISCV_MAIN_DDR);
+    if(main_size == 0) return -1;
+
+    /* Step 6: Load model */
+    xil_printf("[5] Loading model:\r\n");
+    model_size = load_file_to_ddr(MODEL_FILENAME, DDR_MODEL_BASE_PHYS);
+    if(model_size == 0) return -1;
+
+    /* Step 7: Write descriptor */
+    xil_printf("[6] Writing DDR descriptor at 0x%08X...\r\n",
+               DDR_DESCRIPTOR_BASE);
+    DdrDescriptor *desc = (DdrDescriptor *)DDR_DESCRIPTOR_BASE;
+    memset(desc, 0, sizeof(DdrDescriptor));
+    desc->magic     = DDR_DESCRIPTOR_MAGIC;
+    desc->version   = 1;
+    desc->num_files = 1;
+    strncpy(desc->files[0].name, "SMOLLM2.ZUF",
+            DDR_DESCRIPTOR_NAME_LEN - 1);
+    desc->files[0].ddr_addr = DDR_MODEL_BASE;
+    desc->files[0].size     = model_size;
+    desc->files[0].crc32    = 0;
+    xil_printf("    Descriptor written OK\r\n");
+
+    /* Step 8: Flush ARM data cache */
+    xil_printf("[7] Flushing D-cache...\r\n");
+    Xil_DCacheFlush();
+
+    /* Step 9: Release VexRiscv */
+    xil_printf("[8] Releasing VexRiscv from reset...\r\n");
+    Xil_Out32(SYSCTRL_BASE + CTRL_OFFSET, 0x00000000);
+    xil_printf("    Done. Monitor ttyUSB2 for VexRiscv output.\r\n");
+    xil_printf("=============================\r\n");
+    xil_printf("[9] Polling VexRiscv UART output:\r\n");
+
+    /* Poll VexRiscv DDR print buffer instead of APB UART bridge */
+    #define DDR_PRINT_BUF_BASE  0x0C7F0000
+    #define DDR_PRINT_MAGIC     0x50524E54
+    #define DDR_PRINT_BUF_SIZE  4096
+    volatile u32 *pbuf_magic = (volatile u32 *)DDR_PRINT_BUF_BASE;
+    volatile u32 *pbuf_wr    = (volatile u32 *)(DDR_PRINT_BUF_BASE+4);
+    volatile u32 *pbuf_rd    = (volatile u32 *)(DDR_PRINT_BUF_BASE+8);
+    volatile u8  *pbuf_data  = (volatile u8  *)(DDR_PRINT_BUF_BASE+12);
+    u32 local_rd = 0;
+    xil_printf("[10] Polling DDR print buffer at 0x%08X...\r\n", DDR_PRINT_BUF_BASE);
+    while(1) {
+        Xil_DCacheInvalidateRange(DDR_PRINT_BUF_BASE, 4096+12);
+        if(*pbuf_magic == DDR_PRINT_MAGIC) {
+            u32 wr = *pbuf_wr;
+            while(local_rd != wr) {
+                xil_printf("%c", (char)pbuf_data[local_rd]);
+                local_rd = (local_rd + 1) % DDR_PRINT_BUF_SIZE;
+            }
+            *pbuf_rd = local_rd;
+        }
+        usleep(1000);
+    }
+    return 0;
+}

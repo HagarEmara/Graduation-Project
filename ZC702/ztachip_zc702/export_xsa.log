@@ -1,0 +1,28 @@
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source export_xsa.tcl
+# open_project /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.1/data/ip'.
+# puts "===== Project opened ====="
+===== Project opened =====
+# puts "Top module: [get_property top [current_fileset]]"
+Top module: zc702_top
+# puts "===== Writing hardware platform (XSA) with bitstream ====="
+===== Writing hardware platform (XSA) with bitstream =====
+# write_hw_platform -fixed -include_bit -force -file /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.xsa
+INFO: [Vivado 12-4895] Creating Hardware Platform: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.xsa ...
+INFO: [Hsi 55-2053] elapsed time for repository (/tools/Xilinx/Vivado/2021.1/data/embeddedsw) loading 0 seconds
+INFO: [Vivado 12-12464] The Hardware Platform can be used for Hardware
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: /home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.xsa
+# puts "===== XSA exported ====="
+===== XSA exported =====
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Thu Apr 30 02:28:35 2026...

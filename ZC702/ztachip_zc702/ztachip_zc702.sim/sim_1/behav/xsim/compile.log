@@ -1,0 +1,53 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.gen/sources_1/ip/float_addsub/sim/float_addsub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module float_addsub
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.gen/sources_1/ip/float_mul/sim/float_mul.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module float_mul
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.ip_user_files/bd/zynq_bd/ip/zynq_bd_ps7_0/sim/zynq_bd_ps7_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module zynq_bd_ps7_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.ip_user_files/bd/zynq_bd/sim/zynq_bd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module zynq_bd
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/CCD_SYNC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CCD_SYNC
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/DPRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DPRAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/DPRAM_BE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DPRAM_BE
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/DPRAM_DUAL_CLOCK.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DPRAM_DUAL_CLOCK
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/FP32_ADDSUB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP32_ADDSUB
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/FP32_MUL.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module FP32_MUL
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SHIFT.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SHIFT_LEFT_A
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SHIFT.v:35]
+INFO: [VRFC 10-311] analyzing module SHIFT_LEFT_L
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SHIFT.v:50]
+INFO: [VRFC 10-311] analyzing module SHIFT_RIGHT_A
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SHIFT.v:65]
+INFO: [VRFC 10-311] analyzing module SHIFT_RIGHT_L
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SHIFT.v:80]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SPRAM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPRAM
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SPRAM_BE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SPRAM_BE
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/platform/Xilinx/SYNC_LATCH.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SYNC_LATCH
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/src/top/riscv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv
+INFO: [VRFC 10-311] analyzing module SystemDebugger
+INFO: [VRFC 10-311] analyzing module JtagBridgeNoTap
+INFO: [VRFC 10-311] analyzing module VexRiscv
+INFO: [VRFC 10-311] analyzing module BufferCC
+INFO: [VRFC 10-311] analyzing module FlowCCByToggle
+INFO: [VRFC 10-311] analyzing module DataCache
+INFO: [VRFC 10-311] analyzing module InstructionCache
+INFO: [VRFC 10-311] analyzing module BufferCC_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/ztachip_zc702/ztachip_zc702.gen/sources_1/bd/zynq_bd/hdl/zynq_bd_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module zynq_bd_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/mahmoudsamy/grad/ZC702/zc702_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module zc702_top
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mahmoudsamy/grad/ZC702/src/top/zc702_apb_uart_bridge.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zc702_apb_uart_bridge'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/mahmoudsamy/grad/ZC702/src/top/zc702_sysctrl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zc702_sysctrl'

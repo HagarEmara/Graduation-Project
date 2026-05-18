@@ -1,0 +1,33 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.76071",
+   "Default View_TopLeft":"-160,-48",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 2 -x 480 -y 50 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 2 -x 480 -y 80 -defaultsOSRD
+preplace port S_AXI_HP0 -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace port M_AXI_GP0 -pg 1 -lvl 2 -x 480 -y 110 -defaultsOSRD
+preplace port port-id_S_AXI_HP0_ACLK -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port port-id_FCLK_CLK0 -pg 1 -lvl 2 -x 480 -y 170 -defaultsOSRD
+preplace port port-id_FCLK_CLK1 -pg 1 -lvl 2 -x 480 -y 200 -defaultsOSRD
+preplace port port-id_FCLK_RESET0_N -pg 1 -lvl 2 -x 480 -y 230 -defaultsOSRD
+preplace port port-id_M_AXI_GP0_ACLK -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace inst ps7 -pg 1 -lvl 1 -x 240 -y 140 -defaultsOSRD
+preplace netloc S_AXI_HP0_ACLK_1 1 0 1 N 170
+preplace netloc ps7_FCLK_CLK0 1 1 1 460J 170n
+preplace netloc ps7_FCLK_CLK1 1 1 1 460J 200n
+preplace netloc ps7_FCLK_RESET0_N 1 1 1 NJ 230
+preplace netloc M_AXI_GP0_ACLK_0_1 1 0 1 20 150n
+preplace netloc S_AXI_HP0_0_1 1 0 1 20 130n
+preplace netloc ps7_DDR 1 1 1 NJ 50
+preplace netloc ps7_FIXED_IO 1 1 1 460J 70n
+preplace netloc ps7_M_AXI_GP0 1 1 1 N 110
+levelinfo -pg 1 0 240 480
+pagesize -pg 1 -db -bbox -sgen -170 -10 640 290
+"
+}
+{
+   "da_ps7_cnt":"1"
+}

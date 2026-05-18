@@ -1,0 +1,15 @@
+build/apps/equalize/kernels/equalize.m.o.disasm: \
+ apps/equalize/kernels/equalize.m.c \
+ apps/equalize/kernels/../../../base/ztalib.h \
+ /opt/riscv-xpack/lib/gcc/riscv-none-elf/13.2.0/include/stdint.h \
+ /opt/riscv-xpack/riscv-none-elf/include/stdint.h \
+ /opt/riscv-xpack/riscv-none-elf/include/machine/_default_types.h \
+ /opt/riscv-xpack/riscv-none-elf/include/sys/features.h \
+ /opt/riscv-xpack/riscv-none-elf/include/_newlib_version.h \
+ /opt/riscv-xpack/riscv-none-elf/include/sys/_intsup.h \
+ /opt/riscv-xpack/riscv-none-elf/include/sys/_stdint.h \
+ /opt/riscv-xpack/lib/gcc/riscv-none-elf/13.2.0/include/stdbool.h \
+ apps/equalize/kernels/../../../base/types.h \
+ apps/equalize/kernels/../../../base/zta.h \
+ apps/equalize/kernels/../../../base/config.h \
+ apps/equalize/kernels/equalize.h apps/equalize/kernels/equalize.p.img
