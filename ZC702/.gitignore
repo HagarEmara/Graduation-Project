@@ -27,3 +27,8 @@ SW/build/*.d
 # Python cache
 __pycache__/
 *.pyc
+# Vivado project generated artifacts
+ztachip_zc702/ztachip_zc702.gen/
+ztachip_zc702/ztachip_zc702.cache/
+ztachip_zc702/ztachip_zc702.ip_user_files/
+ztachip_zc702/ztachip_zc702.sim/
