@@ -1,0 +1,11 @@
+# Vitis IDE generated - DO NOT COMMIT
+.metadata/
+.Xil/
+*/Debug/
+*/Release/
+IDE.log
+# BSP source (100% regeneratable from .xsa via Vitis)
+ztachip_zc702_platform_v2/ps7_cortexa9_0/standalone_domain/bsp/ps7_cortexa9_0/libsrc/
+ztachip_zc702_platform_v2/zynq_fsbl/zynq_fsbl_bsp/
+ztachip_zc702_platform_v2/resources/
+ztachip_zc702_platform_v2/hw/

@@ -1,0 +1,29 @@
+# Vivado generated - DO NOT COMMIT
+ztachip_zc702/.runs/
+ztachip_zc702/.cache/
+ztachip_zc702/.gen/
+ztachip_zc702/*.ip_user_files/
+ztachip_zc702/ztachip_zc702.runs/
+ztachip_zc702/ztachip_zc702.cache/
+ztachip_zc702/ztachip_zc702.gen/
+ztachip_zc702/ztachip_zc702.hw/
+ztachip_zc702/ztachip_zc702.sim/
+vivado.jou
+vivado.log
+*.jou
+*.log
+
+# Vitis/SDK generated
+vitis_ws/.metadata/
+vitis_ws/*/Debug/
+vitis_ws/*/Release/
+vitis_ws/*/_ide/
+*.sdk/
+
+# SW intermediate build objects
+SW/build/*.o
+SW/build/*.d
+
+# Python cache
+__pycache__/
+*.pyc
